@@ -11,15 +11,6 @@ import { Container, Row, Col } from 'reactstrap';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
-import { createMuiTheme } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/blue';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: red,
-  },
-});
-
 
 
 class Items extends Component {
@@ -82,8 +73,8 @@ class Items extends Component {
 			    value={this.state.value}
 			    onChange={this.handleChange}
 			    indicatorColor="primary"
-			    textColor="primary"
 			    centered
+			    style={{backgroundColor : "#D9657C", color : "white"}}
 			    >
 		        <Tab label="Items" />
 		        <Tab label="Diet Plans" />
