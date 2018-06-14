@@ -60,11 +60,6 @@ class DietPlans extends Component {
       <div>
         <Card className={classes.card}>
           <CardHeader
-            avatar={
-              <Avatar aria-label="Recipe" className={classes.avatar}>
-                R
-              </Avatar>
-            }
             action={
               <IconButton>
                 <MoreVertIcon />
