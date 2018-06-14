@@ -10,7 +10,7 @@ import { Router, Route, Switch } from 'react-router';
 import { NavLink, Link, withRouter, Redirect } from "react-router-dom";
 import './App.css';
 import Login from './Login';
-import DeitPlans from './DeitPlans.js';
+import DietPlans from './DietPlans';
 
 class App extends Component {
   constructor(props){
@@ -28,7 +28,7 @@ class App extends Component {
       <Switch>
       <Route path = "/login" component={Login} /> 
       <Route path="/items" component={ItemsPage} />
-      <Route path="/diets" component={DeitPlans} />
+      <Route path="/diets" component={DietPlans} />
       </Switch>
     );
   }
