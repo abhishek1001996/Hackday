@@ -18,6 +18,9 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import IconButton from '@material-ui/core/IconButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'reactstrap';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
 
 const styles = theme => ({
   card: {
@@ -43,43 +46,62 @@ class CartPage extends Component {
 
 	constructor(props){
 		super(props)
+		this.state = ({})
 	}
+
+	handleChange = (event, value) => {
+	        if(value === 0) {
+	            this.props.history.push("/items");
+	        }
+	        if(value === 1) {
+	            this.props.history.push("/diets");
+	        }
+	        if(value === 2){
+	        	this.props.history.push("/cart");
+	        }
+	      };
+	    renderDietPlans() {
+	        if(this.props.location.pathname ==="/cart") {
+	            return(
+	                <div>Hello World!!</div>
+	            )
+	        }
+	        else if(this.props.location.pathname === "/diets"){
+	            this.props.history.push("/diets");
+	        }
+	        else{
+	        	this.props.history.push("/items");
+	        }
+	    }
 
 	render(){
 		const { classes } = this.props;
 		return(
 			<div>
-			  <Card className={classes.card}>
-			    <Row>
-			    <Col>
-			    <CardMedia
-			      className={classes.media}
-			      image={this.props.itemImage}
-			      title="Onion"
-			    />
-			    </Col>
-			    <Col>
-			    <CardContent>
-			      
-			      <Typography gutterBottom variant="headline" component="h2" className={classes.text}>
-			          Onion
-			          Price : 10/Kg
-			      </Typography>
-			      
-			      
-			      
-			    </CardContent>
-			    </Col>
-			    </Row>
-			  </Card>
-			  </div>
+			  	<AppBar position="static" color="default">
+			  	<Tabs
+			  	    value={this.state.value}
+			  	    onChange={this.handleChange}
+			  	    indicatorColor="primary"
+			  	    fullWidth
+			  	    style={{backgroundColor : "#D9657C", color : "white"}}
+			  	    >
+			          <Tab label="Items" />
+			          <Tab label="Diet Plans" />
+			          <Col style={{float:'right'}}>
+			          <IconButton style={{float:'right', color:"white"}} aria-label="Add to shopping cart">
+			                  <AddShoppingCartIcon />
+			          </IconButton>
+			          </Col>
+			  	</Tabs>
+			  	</AppBar>
+			  	<br />
+			  	<br />
+			  	{this.renderDietPlans()}
+			  
+			</div>
 		);
 	}
 }
 
-
-CartPage.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(CartPage);
+export default CartPage;
