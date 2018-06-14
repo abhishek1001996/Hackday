@@ -12,6 +12,7 @@ import './App.css';
 import Login from './Login';
 import DietPlans from './DietPlans';
 import Items from './Items.js';
+import CartPage from './CartPage.js';
 
 class App extends Component {
   constructor(props){
@@ -30,6 +31,7 @@ class App extends Component {
       <Route path = "/login" component={Login} /> 
       <Route path="/items" component={Items} />
       <Route path="/diets" component={DietPlans} />
+      <Route path="/cart" component={CartPage} />
       </Switch>
     );
   }

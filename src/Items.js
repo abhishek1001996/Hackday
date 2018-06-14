@@ -11,6 +11,8 @@ import { Container, Row, Col } from 'reactstrap';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import IconButton from '@material-ui/core/IconButton';
 
 
 class Items extends Component {
@@ -19,6 +21,7 @@ class Items extends Component {
 		this.state = ({
 			itemsList : ['onion', 'potato', 'rice', 'flour', 'ghee', 'sugar'],
 		})
+		this.handleForCart = this.handleForCart.bind(this);
 	}
 
 	handleChange = (event, value) => {
@@ -28,6 +31,7 @@ class Items extends Component {
 	        if(value === 1) {
 	            this.props.history.push("/diets");
 	        }
+	        
 	      };
 	    renderDietPlans() {
 	        if(this.props.location.pathname ==="/items") {
@@ -60,9 +64,16 @@ class Items extends Component {
 	                </Container>
 	            )
 	        }
-	        else {
+	        else if(this.props.location.pathname === "/diets"){
 	            this.props.history.push("/diets");
 	        }
+	        else{
+	        	this.props.history.push("/cart");
+	        }
+	    }
+
+	    handleForCart(){
+	    	this.props.history.push("/cart");
 	    }
 
 	render(){
@@ -73,11 +84,16 @@ class Items extends Component {
 			    value={this.state.value}
 			    onChange={this.handleChange}
 			    indicatorColor="primary"
-			    centered
+			    fullWidth
 			    style={{backgroundColor : "#D9657C", color : "white"}}
 			    >
 		        <Tab label="Items" />
 		        <Tab label="Diet Plans" />
+		        <Col style={{float:'right'}}>
+		        <IconButton style={{float:'right', color:"white"}} aria-label="Add to shopping cart" onClick={this.handleForCart}>
+		                <AddShoppingCartIcon />
+		        </IconButton>
+		        </Col>
 			</Tabs>
 			</AppBar>
 			<br />
