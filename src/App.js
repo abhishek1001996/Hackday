@@ -11,6 +11,7 @@ import { NavLink, Link, withRouter, Redirect } from "react-router-dom";
 import './App.css';
 import Login from './Login';
 import DietPlans from './DietPlans';
+import Items from './Items.js';
 
 class App extends Component {
   constructor(props){
@@ -21,13 +22,13 @@ class App extends Component {
     })
   }
   componentDidMount() {
-    this.props.history.push("/diets");
+    this.props.history.push("/login");
   }
   render() {
     return (
       <Switch>
       <Route path = "/login" component={Login} /> 
-      <Route path="/items" component={ItemsPage} />
+      <Route path="/items" component={Items} />
       <Route path="/diets" component={DietPlans} />
       </Switch>
     );

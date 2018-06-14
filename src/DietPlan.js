@@ -4,6 +4,7 @@ import { NavLink, Link, withRouter, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
+import ButtonComponent from './ButtonComponent.js';
 
 
 import Card from '@material-ui/core/Card';
@@ -120,22 +121,7 @@ class DietPlan extends Component {
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} disableActionSpacing>
-            <Select
-                style={{marginLeft : "20px"}}
-                value={this.state.age}
-                onChange={this.handleChange}
-                inputProps={{
-                name: 'age',
-                id: 'age-simple',
-                }}
-            >
-              <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+            <ButtonComponent initialValue={0}/>
             <IconButton aria-label="Add to favorites" style={{marginLeft : "200px"}}>
              <AddShoppingCartIcon />
             </IconButton>

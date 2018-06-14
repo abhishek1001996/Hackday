@@ -1,0 +1,21 @@
+.element1{
+	float:left;
+	padding-top: 2px;
+}
+
+.element2 {
+	float:left;
+	margin-left: 5px;
+}
+
+.element3{
+	float:left;
+	margin-left: 5px;
+	padding-top: 2px;
+}
+
+div.a{
+	height: 25px;
+	width: 65px;
+	border: 1px solid blue;
+}
