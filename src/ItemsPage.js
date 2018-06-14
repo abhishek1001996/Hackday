@@ -16,10 +16,13 @@ import Onion from './DietImages/onion.jpeg';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import IconButton from '@material-ui/core/IconButton';
+import ButtonComponent from './ButtonComponent.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'reactstrap';
 
 const styles = theme => ({
   card: {
-    maxWidth: 200,
+    maxWidth: 250,
     maxHeight: 300,
   },
   media: {
@@ -87,30 +90,16 @@ class ItemsPage extends Component {
 	            <Typography gutterBottom variant="headline" component="h2">
 	                Price : {this.state.price}/Kg
 	            </Typography>
-	            <FormControl className={classes.formControl}>
-	                      <InputLabel htmlFor="demo-controlled-open-select">Qty(Kg)</InputLabel>
-	                      <Select
-	                        open={this.state.open}
-	                        onClose={this.handleClose}
-	                        onOpen={this.handleOpen}
-	                        value={this.state.age}
-	                        onChange={this.handleChange}
-	                        inputProps={{
-	                          name: 'age',
-	                          id: 'demo-controlled-open-select',
-	                        }}
-	                      >
-	                        <MenuItem value="">
-	                          <em>None</em>
-	                        </MenuItem>
-	                        <MenuItem value={1}>1</MenuItem>
-	                        <MenuItem value={2}>2</MenuItem>
-	                        <MenuItem value={3}>3</MenuItem>
-	                      </Select>
-	            </FormControl>
+	            <Row>
+	            <Col>
+	            <ButtonComponent initialValue={0}/>
+	            </Col>
+	            <Col>
 	            <IconButton color="primary" className={classes.button} aria-label="Add to shopping cart">
 	                    <AddShoppingCartIcon />
 	            </IconButton>
+	            </Col>
+	            </Row>
 	          </CardContent>
 	          <CardActions className={classes.actions} disableActionSpacing>
 	           
